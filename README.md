@@ -38,14 +38,14 @@
 - [Instalar em Termux](#instalar-no-termux)
 - [Implante no Replit](#implante-no-replit)
 - [Implante no Heroku](#implante-no-heroku)
-- [Termos e Condições](#termos-)
+- [Termos e Condições](#termos-)https://wa.me/558881647724?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20o%20bot
 - [Agradecimentos](#agradecimentos-)
 
 ---
 
 ## Dúvidas ⛔️
 
-- [Entre em contato comigo no WhatsApp]([https://wa.me/558881647724?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20o%20bot](https://api.whatsapp.com/send/?phone=558881125331&text=Ol%C3%A1%2C+preciso+de+ajuda+com+o+bot&type=phone_number&app_absent=0))
+- [Entre em contato comigo no WhatsApp]([https://wa.me/558881647724?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20o%20bot](https://api.whatsapp.com/send/?phone=558881125331&text=Ol%C3%A1%2C+preciso+de+ajuda+com+o+bot&type=phone_number&app_absent=0)
 - Email: 
 
 ---
