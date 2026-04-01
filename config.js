@@ -4,12 +4,12 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 global.owner = [
-  ['558881647724', 'marcoskz_', true],
-  ['61488873561']
+  ['5521971315681', 'heavy', true],
+  ['21971315681']
 ] //Numeros dos donos
 
-global.mods = ['558881647724'] 
-global.prems = ['558881647724', '558881647724']
+global.mods = ['5521971315681'] 
+global.prems = ['5521971315681', '5521971315681']
 global.APIs = { // API Prefix
   // name: 'https://website' 
   nrtm: 'https://fg-nrtm.ddns.net',
@@ -53,22 +53,22 @@ global.marcosMenu = [img, img2, img3, img4] //img6, img7, img8, img9, img13, img
 global.marcosgpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6, gpt7]
 
 // Sticker PackName
-global.packname = '🤖 𝚂𝙾𝚈𝚄𝚉-𝙱𝙾𝚃-𝙼𝙳' 
+global.packname = '🤖 heavy Volkinn33s' 
 global.author = 'user' 
 
 //--info
-global.botName = 'Vladivostok'
-global.fgig = 'https://www.instagram.com/marcoskz_' 
+global.botName = 'Heavy'
+global.fgig = 'https://www.instagram.com/heavycriminall' 
 global.fgsc = 'https://github.com/Marcosi8' 
 global.fgyt = 'https://youtube.com'
-global.fgpyp = 'https://www.paypal.com/donate/?business=WUDZNJ573PAF6&no_recurring=0&item_name=Help+this+project+stay+active%21+%3A%29&currency_code=BRL'
+global.fgpyp = 'não sou pobre, ok?'
 global.fglog = 'https://i.ibb.co/1zdz2j3/logo.jpgs' 
 
 //--- Grupos WA
-global.fgcanal = 'https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ'
-global.bgp = 'https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ'
-global.bgp2 = 'https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ'
-global.bgp3 = 'https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ' //--GP NSFW
+global.fgcanal = 'https://chat.whatsapp.com/G4lVeN4x3fqAiDgXQyBme9'
+global.bgp = 'https://chat.whatsapp.com/G4lVeN4x3fqAiDgXQyBme9'
+global.bgp2 = 'https://chat.whatsapp.com/G4lVeN4x3fqAiDgXQyBme9'
+global.bgp3 = 'https://chat.whatsapp.com/G4lVeN4x3fqAiDgXQyBme9' //--GP NSFW
 
 global.wait = '_*Baixando...*_ 📥\n*▬▬▬▭*'
 global.rwait = '🔄'
