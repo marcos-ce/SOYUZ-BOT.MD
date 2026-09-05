@@ -1,125 +1,178 @@
-console.log('✅ Iniciando...')
-
-import { join, dirname } from 'path'
-import { createRequire } from 'module';
-import { fileURLToPath } from 'url'
-import { setupMaster, fork } from 'cluster'
-import { watchFile, unwatchFile } from 'fs'
-import cfonts from 'cfonts';
-import { createInterface } from 'readline'
-import yargs from 'yargs'
-import express from 'express'
 import chalk from 'chalk'
-import path from 'path'
+import cfonts from 'cfonts'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
+import express from 'express'
 import os from 'os'
+import path from 'path'
 import { promises as fsPromises } from 'fs'
+import pino from 'pino'
+import dotenv from 'dotenv'
 
-// https://stackoverflow.com/a/50052194
+// Load environment variables
+dotenv.config()
+
+// Setup __dirname and __filename for ES modules
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const require = createRequire(__dirname) // Bring in the ability to create the 'require' method
-const { name, author } = require(join(__dirname, './package.json')) // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
-const { say } = cfonts
-const rl = createInterface(process.stdin, process.stdout)
+const require = createRequire(__dirname)
+const { name, version, author } = require(path.join(__dirname, './package.json'))
 
-const app = express()
-const port = process.env.PORT || 8080;
+// =====================================================
+// LOGGER SETUP
+// =====================================================
+const log = pino({
+  level: process.env.LOG_LEVEL || 'info',
+})
 
-say('SOYUZ', {
+// =====================================================
+// STARTUP BANNER
+// =====================================================
+cfonts.say('SOYUZ', {
   font: '3d',
   align: 'center',
   gradient: ['red', 'magenta']
 })
-say(`SoyuzBOT-Marcoskz`, {
+
+cfonts.say(`${name} v${version}`, {
   font: 'console',
   align: 'center',
-  color: 'red'
+  color: 'cyan'
+})
+
+cfonts.say(`by ${author.name}`, {
+  font: 'console',
+  align: 'center',
+  color: 'yellow'
+})
+
+log.info(chalk.blue('═════════════════════════════════════════════'))
+log.info(chalk.cyan(`✨ Starting bot v${version}...`))
+log.info(chalk.blue('═════════════════════════════════════════════'))
+
+// =====================================================
+// EXPRESS SERVER SETUP
+// =====================================================
+const app = express()
+const port = process.env.PORT || 3000
+
+// Middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    bot: name,
+    version,
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  })
+})
+
+// Status endpoint
+app.get('/status', (req, res) => {
+  res.json({
+    status: global.conn ? 'connected' : 'disconnected',
+    owner: global.owner?.[0]?.[0] || 'not configured',
+    uptime: process.uptime(),
+    memoryUsage: process.memoryUsage(),
+    platform: {
+      os: os.type(),
+      arch: os.arch(),
+      cpuCount: os.cpus().length
+    }
+  })
 })
 
 app.listen(port, () => {
-  console.log(chalk.green(`🌐 Porto ${port} aberto`));
-});
-
-var isRunning = false
-
-async function start(file) {
-  if (isRunning) return
-  isRunning = true
-  const currentFilePath = new URL(import.meta.url).pathname
-  let args = [join(__dirname, file), ...process.argv.slice(2)]
-  say([process.argv[0], ...args].join(' '), {
-    font: 'console',
-    align: 'center',
-    color: 'red'
+  log.info(chalk.green(`✅ Server listening on port ${port}`))
+  log.info(chalk.gray(`💻 Platform: ${os.type()} ${os.release()}`), {
+    arch: os.arch(),
+    cpus: os.cpus().length
   })
-  setupMaster({
-    exec: args[0],
-    args: args.slice(1),
-  })
-  let p = fork()
-  p.on('message', data => {
-    console.log('[RECEIVED]', data)
-    switch (data) {
-      case 'reset':
-        p.process.kill()
-        isRunning = false
-        start.apply(this, arguments)
-        break
-      case 'uptime':
-        p.send(process.uptime())
-        break
-    }
-  })
-  //---
-  p.on('exit', (_, code) => {
-    isRunning = false
-    console.error('⛔️ Erro desconhecido:', code)
-    start('main.js'); //
+})
 
-    if (code === 0) return
-    watchFile(args[0], () => {
-      unwatchFile(args[0])
-      start(file)
-    })
-  })
+// =====================================================
+// SYSTEM INFO
+// =====================================================
+logSystemInfo()
 
-  //---
-  console.log(chalk.yellow(`🖥️ ${os.type()}, ${os.release()} - ${os.arch()}`));
-  const ramInGB = os.totalmem() / (1024 * 1024 * 1024);
-  console.log(chalk.yellow(`💾 Total RAM: ${ramInGB.toFixed(2)} GB`));
-  const freeRamInGB = os.freemem() / (1024 * 1024 * 1024);
-  console.log(chalk.yellow(`💽 RAM Livre: ${freeRamInGB.toFixed(2)} GB`));
-  console.log(chalk.yellow(`📃 Script by Soyuz`));
+function logSystemInfo() {
+  const totalMemGb = os.totalmem() / (1024 * 1024 * 1024)
+  const freeMemGb = os.freemem() / (1024 * 1024 * 1024)
+  const usedMemGb = totalMemGb - freeMemGb
 
-  const packageJsonPath = path.join(path.dirname(currentFilePath), './package.json');
-    try {
-    const packageJsonData = await fsPromises.readFile(packageJsonPath, 'utf-8');
-    const packageJsonObj = JSON.parse(packageJsonData);
-    console.log(chalk.blue.bold(`\n📦 Info Package.json`));
-    console.log(chalk.cyan(`Nome: ${packageJsonObj.name}`));
-    console.log(chalk.cyan(`Versão: ${packageJsonObj.version}`));
-    console.log(chalk.cyan(`Descrição: ${packageJsonObj.description}`));
-    console.log(chalk.cyan(`Autor: ${packageJsonObj.author.name}`));
-  } catch (err) {
-    console.error(chalk.red(`❌ Erro ao tentar ler arquivo package.json: ${err}`));
-  }
-
-
-  console.log(chalk.blue.bold(`\n⏰ Hora de Execução`));
-  const currentTime = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
-  //const currentTime = new Date().toLocaleString();
-  console.log(chalk.cyan(`${currentTime}`));
-
-  setInterval(() => {}, 1000);
-
-  
-
-  //----
-  let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
-  if (!opts['test'])
-    if (!rl.listenerCount()) rl.on('line', line => {
-      p.emit('message', line.trim())
-    })
-  // console.log(p)
+  log.info(chalk.gray('System Information:'))
+  log.info(chalk.gray(`  Total RAM: ${totalMemGb.toFixed(2)} GB`))
+  log.info(chalk.gray(`  Used RAM:  ${usedMemGb.toFixed(2)} GB`))
+  log.info(chalk.gray(`  Free RAM:  ${freeMemGb.toFixed(2)} GB`))
+  log.info(chalk.gray(`  CPUs:      ${os.cpus().length}`))
+  log.info(chalk.gray(`  Node.js:   ${process.version}`))
 }
 
-start('main.js')
+// =====================================================
+// CONFIGURATION VALIDATION
+// =====================================================
+function validateConfiguration() {
+  const errors = []
+  const warnings = []
+
+  if (!global.owner || global.owner.length === 0) {
+    errors.push('BOT_OWNER_NUMBER is not configured')
+  }
+
+  if (process.env.NODE_ENV !== 'production' && global.debugMode) {
+    warnings.push('Debug mode is enabled (development only)')
+  }
+
+  if (errors.length > 0) {
+    log.error(chalk.red('❌ Configuration errors:'))
+    errors.forEach(err => log.error(chalk.red(`   - ${err}`)))
+    process.exit(1)
+  }
+
+  if (warnings.length > 0) {
+    log.warn(chalk.yellow('⚠️  Configuration warnings:'))
+    warnings.forEach(warn => log.warn(chalk.yellow(`   - ${warn}`)))
+  }
+}
+
+validateConfiguration()
+
+// =====================================================
+// DYNAMIC IMPORT AND BOT STARTUP
+// =====================================================
+async function startBot() {
+  try {
+    // Import bot instance and load main module
+    const { default: initBaileysSocket } = await import('./main.js')
+    
+    // Additional initialization logic will be added here
+    log.info(chalk.green('✅ Bot modules loaded successfully'))
+  } catch (err) {
+    log.error(chalk.red('❌ Failed to start bot:'), err)
+    process.exit(1)
+  }
+}
+
+startBot()
+
+// =====================================================
+// ERROR HANDLERS
+// =====================================================
+process.on('uncaughtException', (err) => {
+  log.error(chalk.red('❌ Uncaught Exception:'), err)
+  process.exit(1)
+})
+
+process.on('unhandledRejection', (reason, promise) => {
+  log.error(chalk.red('❌ Unhandled Rejection at:'), promise, 'reason:', reason)
+})
+
+process.on('warning', (warning) => {
+  log.warn(chalk.yellow('⚠️  Warning:'), warning.name, warning.message)
+})
+
+export { app }
