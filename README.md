@@ -45,8 +45,8 @@
 
 ## Dúvidas ⛔️
 
-- [Entre em contato comigo no WhatsApp]([https://wa.me/558881647724?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20o%20bot](https://api.whatsapp.com/send/?phone=558881125331&text=Ol%C3%A1%2C+preciso+de+ajuda+com+o+bot&type=phone_number&app_absent=0)
-- Email: 
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5588981125331?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20o%20bot)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:smarcos.ce@gmail.com)
 
 ---
 
