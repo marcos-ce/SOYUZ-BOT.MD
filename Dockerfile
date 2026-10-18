@@ -1,19 +1,22 @@
-FROM node:lts-buster
+FROM node:20-bookworm-slim
 
 RUN apt-get update && \
-  apt-get install -y \
+  apt-get install -y --no-install-recommends \
   ffmpeg \
   imagemagick \
-  webp && \
-  apt-get upgrade -y && \
+  webp \
+  git \
+  ca-certificates && \
   rm -rf /var/lib/apt/lists/*
 
-COPY package.json .
+WORKDIR /app
 
-RUN npm install && npm install qrcode-terminal
+COPY package.json ./
+
+RUN npm install --omit=dev
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 3000
 
 CMD ["node", "index.js"]

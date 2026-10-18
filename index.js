@@ -10,8 +10,9 @@ import { promises as fsPromises } from 'fs'
 import pino from 'pino'
 import dotenv from 'dotenv'
 
-// Load environment variables
+// Load environment variables and global configuration
 dotenv.config()
+import './config.js'
 
 // Setup __dirname and __filename for ES modules
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -146,11 +147,11 @@ validateConfiguration()
 // =====================================================
 async function startBot() {
   try {
-    // Import bot instance and load main module
+    // Import bot instance and initialize Baileys socket + plugins
     const { default: initBaileysSocket } = await import('./main.js')
-    
-    // Additional initialization logic will be added here
-    log.info(chalk.green('✅ Bot modules loaded successfully'))
+    await initBaileysSocket()
+
+    log.info(chalk.green('✅ Bot modules loaded and initialized successfully'))
   } catch (err) {
     log.error(chalk.red('❌ Failed to start bot:'), err)
     process.exit(1)
@@ -164,7 +165,6 @@ startBot()
 // =====================================================
 process.on('uncaughtException', (err) => {
   log.error(chalk.red('❌ Uncaught Exception:'), err)
-  process.exit(1)
 })
 
 process.on('unhandledRejection', (reason, promise) => {

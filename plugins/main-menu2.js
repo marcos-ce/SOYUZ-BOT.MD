@@ -31,12 +31,8 @@ let m2 = `
 *${usedPrefix}on* antilink2
 *${usedPrefix}off* antilink2
 `
-   let pp = './src/WhatsApp Video 2024-02-08 at 16.59.44.mp4' 
-   /* conn.sendButton(m.chat, m2, mssg.ig, pp, [
-      ['⏍ Info', `${usedPrefix}botinfo`],
-      ['⌬ Grupos', `${usedPrefix}gpdylux`]
-    ],m, rpyt)*/
-    conn.sendFile(m.chat, pp, 'menu.jpg', m2, m, null, rpl)
+   let pp = global.marcosMenu?.length ? global.marcosMenu.getRandom() : './src/avatar_contact.png'
+   conn.sendFile(m.chat, pp, 'menu.jpg', m2, m, null, global.rpl)
    
 }
 
