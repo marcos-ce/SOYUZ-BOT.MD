@@ -37,7 +37,7 @@
 - [✨ Principais Funcionalidades](#-principais-funcionalidades)
 - [🔑 Conexão Fácil (Código de 8 Dígitos ou QR Code)](#-conexão-fácil-código-de-8-dígitos-ou-qr-code)
 - [📱 Instalação no Termux (Android)](#-instalação-no-termux-android)
-- [💻 Instalação no PC / VPS (Linux & Windows)](#-instalação-no-pc--vps-linux--windows)
+- [💻 Como Rodar Localmente no PC (Windows, Linux & macOS)](#-como-rodar-localmente-no-pc-windows-linux--macos)
 - [🐳 Rodando com Docker](#-rodando-com-docker)
 - [⚙️ Configuração (`.env` e `config.js`)](#️-configuração-env-e-configjs)
 - [💬 Suporte e Contato](#-suporte-e-contato)
@@ -112,20 +112,70 @@ npm start
 
 ---
 
-## 💻 Instalação no PC / VPS (Linux & Windows)
+## 💻 Como Rodar Localmente no PC (Windows, Linux & macOS)
 
-### Pré-requisitos
-- [Node.js](https://nodejs.org/) v18 ou v20+
-- [Git](https://git-scm.com/)
-- [FFmpeg](https://ffmpeg.org/) e [ImageMagick](https://imagemagick.org/) instalados no sistema
+### 1. Instalar os Pré-requisitos
 
-### Passo a passo (Ubuntu / Debian)
+#### 🪟 No Windows (via PowerShell ou Winget)
+Abra o **PowerShell** e instale o Node.js, Git, FFmpeg e ImageMagick (ou baixe pelos sites oficiais):
+```powershell
+winget install OpenJS.NodeJS.LTS
+winget install Git.Git
+winget install Gyan.FFmpeg
+winget install ImageMagick.ImageMagick
+```
+> 💡 *Após instalar, feche e abra novamente o terminal para atualizar o `PATH`.*
+
+#### 🐧 No Linux (Ubuntu / Debian / Mint / WSL)
 ```bash
-sudo apt update && sudo apt install -y git ffmpeg imagemagick webp
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt update && sudo apt install -y nodejs git ffmpeg imagemagick webp
+```
+
+#### 🍎 No macOS (via Homebrew)
+```bash
+brew install node git ffmpeg imagemagick webp
+```
+
+---
+
+### 2. Clonar, Configurar e Iniciar no PC
+
+No seu terminal (**PowerShell**, **CMD**, **Git Bash** ou **Terminal Linux/Mac**), execute:
+
+```bash
+# 1. Clone o repositório
 git clone https://github.com/marcos-ce/SOYUZ-BOT.MD.git
+
+# 2. Entre na pasta do projeto
 cd SOYUZ-BOT.MD
+
+# 3. Instale todas as dependências
 npm install
+
+# 4. (Opcional) Crie o arquivo .env para configurar seu número de dono
+cp .env.example .env
+
+# 5. Inicie o bot!
 npm start
+```
+
+### 3. Comandos Úteis no PC
+
+| Comando | O que faz |
+| :--- | :--- |
+| `npm start` | Inicia o bot normalmente (exibe o menu de escolha **QR Code** ou **Código de 8 dígitos**). |
+| `npm run dev` | Inicia o bot em modo de desenvolvimento com reinício automático ao editar arquivos. |
+| `node index.js --pairing-code --phone 5588981647724` | Conecta direto gerando o código de 8 dígitos para o número informado. |
+| `rm -rf sessions` *(Linux/Mac)* ou ` rmdir /s /q sessions` *(Windows)* | Apaga a sessão salva caso queira desconectar e parear outro número. |
+
+#### 🔄 Mantendo o Bot Online 24/7 em Segundo Plano (PM2)
+Se quiser deixar o bot rodando em segundo plano no PC ou VPS com reinício automático:
+```bash
+npm install -g pm2
+pm2 start index.js --name "soyuz-bot"
+pm2 save
+pm2 logs soyuz-bot
 ```
 
 ---
