@@ -31,8 +31,66 @@
 
 ---
 
+## 🚀 Começando Rápido (Para quem for usar)
+
+> Clonando o repositório pela primeira vez? Siga estes **5 passos**:
+
+**1. Clone (ou bifurque) e entre na pasta:**
+```bash
+git clone https://github.com/marcos-ce/SOYUZ-BOT.MD.git
+cd SOYUZ-BOT.MD
+```
+
+**2. Instale as dependências:**
+```bash
+npm install
+```
+
+**3. Crie seu arquivo de configuração `.env`:**
+```bash
+# Linux / macOS / Git Bash
+cp .env.example .env
+
+# Windows (CMD)
+copy .env.example .env
+```
+
+**4. Edite o `.env` e coloque pelo menos seu número:**
+```env
+BOT_OWNER_NUMBER=5588981647724   # ← seu número com DDI+DDD, sem espaços
+BOT_PHONE_NUMBER=5588981647724   # ← mesmo número (usado no Pairing Code)
+PAIRING_CODE=true                # ← true = conectar via código de 8 dígitos
+```
+
+**5. Inicie o bot:**
+```bash
+npm start
+```
+> O bot vai gerar um **código de 8 dígitos** no terminal. Abra o WhatsApp → *Aparelhos Conectados* → *Conectar um aparelho* → *Conectar com número de telefone* → digite o código.
+
+---
+
+### 🔑 Chaves de API opcionais (para recursos extras)
+
+Os comandos abaixo precisam de chaves gratuitas. Sem elas, o comando simplesmente não funcionará — o restante do bot funciona normalmente.
+
+| Comando | API necessária | Como obter grátis |
+| :--- | :--- | :--- |
+| `!emojimix` (figurinha com 2 emojis) | `TENOR_API_KEY` | [developers.google.com/tenor](https://developers.google.com/tenor/guides/quickstart) |
+| `!whatmusic` (identificar música) | `ACRCLOUD_ACCESS_KEY` + `ACRCLOUD_ACCESS_SECRET` | [acrcloud.com](https://www.acrcloud.com/) → criar projeto gratuito |
+
+Adicione as chaves no seu `.env`:
+```env
+TENOR_API_KEY=sua_chave_aqui
+ACRCLOUD_ACCESS_KEY=sua_chave_aqui
+ACRCLOUD_ACCESS_SECRET=seu_secret_aqui
+```
+
+---
+
 ## 📋 Sumário / Table of Contents
 
+- [🚀 Começando Rápido](#-começando-rápido-para-quem-for-usar)
 - [🌐 Suporte Multilíngue (5 Idiomas)](#-suporte-multilíngue-5-idiomas)
 - [✨ Principais Funcionalidades](#-principais-funcionalidades)
 - [🔑 Conexão Fácil (Código de 8 Dígitos ou QR Code)](#-conexão-fácil-código-de-8-dígitos-ou-qr-code)
