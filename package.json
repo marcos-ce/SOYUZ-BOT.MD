@@ -1,7 +1,7 @@
 {
   "name": "SOYUZ-BOT.MD",
   "version": "4.0.0",
-  "description": "🤖 Bot de WhatsApp Multi-Device em Português (PT-BR) feito em Node.js com Baileys — Conexão via Pairing Code (8 dígitos) ou QR Code, Figurinhas, Downloads, Jogos/RPG e Administração de Grupos! 🌠",
+  "description": "🤖 Multi-Device & Multi-Language WhatsApp Bot (PT-BR, ES, EN, ID, AR) em Node.js com Baileys — Conexão via Pairing Code (8 dígitos) ou QR Code, Figurinhas/Stickers, Downloads, Jogos/RPG e Grupos! 🌠",
   "main": "index.js",
   "type": "module",
   "engines": {
@@ -23,8 +23,10 @@
     "whatsapp-bot",
     "bot-whatsapp",
     "whatsapp-bot-pt-br",
+    "whatsapp-bot-es",
     "whatsapp-bot-md",
     "whatsapp-multi-device",
+    "multilanguage",
     "baileys",
     "baileys-md",
     "whiskeysockets",

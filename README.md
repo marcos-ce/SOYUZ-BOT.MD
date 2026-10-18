@@ -2,11 +2,11 @@
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%" />
 
-# 🚀 SOYUZ-BOT.MD — Bot de WhatsApp Multi-Device (PT-BR)
+# 🚀 SOYUZ-BOT.MD — Multi-Device & Multi-Language WhatsApp Bot
 
 <p align="center">
-  <b>Bot de WhatsApp Multi-Dispositivo completo em Português (Brasil) construído em Node.js com <code>@whiskeysockets/baileys</code>.</b><br/>
-  Conexão fácil via <b>Código de Pareamento (8 dígitos)</b> ou <b>QR Code</b>, criação de figurinhas (stickers), downloads (YouTube, TikTok, Instagram), administração de grupos, sistema de economia/RPG, jogos e Inteligência Artificial.
+  <b>Bot de WhatsApp Multi-Dispositivo e Multilíngue (🇧🇷 PT-BR • 🇪🇸 ES • 🇺🇸 EN • 🇮🇩 ID • 🇸🇦 AR) construído em Node.js com <code>@whiskeysockets/baileys</code>.</b><br/>
+  Conexão fácil via <b>Código de Pareamento (8 dígitos / Pairing Code)</b> ou <b>QR Code</b>, criação de figurinhas (stickers), downloads (YouTube, TikTok, Instagram), administração de grupos, sistema de economia/RPG, jogos e Inteligência Artificial.
 </p>
 
 <p align="center">
@@ -19,8 +19,8 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-18%2B%20%7C%2020%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Baileys-Multi--Device-25D366?style=flat-square&logo=whatsapp&logoColor=white" alt="Baileys MD" />
-  <img src="https://img.shields.io/badge/Idioma-Portugu%C3%AAs%20(PT--BR)%20%7C%20ES%20%7C%20EN-009c3b?style=flat-square" alt="Idioma" />
-  <img src="https://img.shields.io/badge/Plataformas-Termux%20%7C%20VPS%20%7C%20Docker%20%7C%20PC-0db7ed?style=flat-square&logo=docker&logoColor=white" alt="Plataformas" />
+  <img src="https://img.shields.io/badge/Languages-PT--BR%20%7C%20ES%20%7C%20EN%20%7C%20ID%20%7C%20AR-009c3b?style=flat-square" alt="Idiomas" />
+  <img src="https://img.shields.io/badge/Platforms-Termux%20%7C%20VPS%20%7C%20Docker%20%7C%20PC-0db7ed?style=flat-square&logo=docker&logoColor=white" alt="Plataformas" />
 </p>
 
 <p align="center">
@@ -31,8 +31,9 @@
 
 ---
 
-## 📋 Sumário
+## 📋 Sumário / Table of Contents
 
+- [🌐 Suporte Multilíngue (5 Idiomas)](#-suporte-multilíngue-5-idiomas)
 - [✨ Principais Funcionalidades](#-principais-funcionalidades)
 - [🔑 Conexão Fácil (Código de 8 Dígitos ou QR Code)](#-conexão-fácil-código-de-8-dígitos-ou-qr-code)
 - [📱 Instalação no Termux (Android)](#-instalação-no-termux-android)
@@ -44,6 +45,20 @@
 
 ---
 
+## 🌐 Suporte Multilíngue (5 Idiomas)
+
+O **SOYUZ-BOT.MD** possui sistema de tradução integrado por usuário! Embora o **Português Brasileiro (`pt`)** seja o idioma padrão, cada usuário pode escolher em qual idioma o bot deve responder usando o comando `!idioma`, `!lang`, `!language` ou `!lenguaje`:
+
+| Código | Idioma | Comando no WhatsApp |
+| :---: | :--- | :--- |
+| 🇧🇷 **`pt`** | **Português (Brasil)** *(Padrão)* | `!idioma pt` |
+| 🇪🇸 **`es`** | **Español** | `!lenguaje es` |
+| 🇺🇸 **`en`** | **English** | `!language en` |
+| 🇮🇩 **`id`** | **Bahasa Indonesia** | `!lang id` |
+| 🇸🇦 **`ar`** | **العربية (Arabic)** | `!lang ar` |
+
+---
+
 ## ✨ Principais Funcionalidades
 
 O **SOYUZ-BOT.MD** conta com **200+ plugins modulares** com recarregamento automático (*hot-reload*):
@@ -51,12 +66,12 @@ O **SOYUZ-BOT.MD** conta com **200+ plugins modulares** com recarregamento autom
 | Categoria | Recursos e Comandos Principais |
 | :--- | :--- |
 | 🔑 **Conexão Moderna** | Pareamento via **Código de 8 dígitos (Pairing Code)** direto no celular (sem precisar de segundo aparelho) ou via **QR Code**. |
+| 🌐 **Multilíngue por Usuário** | Respostas dinâmicas em **Português, Espanhol, Inglês, Indonésio e Árabe** (`!idioma`, `!lang`, `!lenguaje`). |
 | 🖼️ **Figurinhas (Stickers)** | Criação de figurinhas estáticas e animadas de fotos, vídeos e links (`!s`, `!sticker`, `!attp`, `!ttp`, `!wm`, `!toimg`, `!tomp4`). |
 | 📥 **Downloads (Mídias)** | Baixe vídeos e músicas do **YouTube** (`!play`, `!ytmp3`, `!ytmp4`), **TikTok** sem marca d'água (`!tiktok`), **Instagram** (`!ig`), **Facebook**, **MediaFire**, **Google Drive**, **GitHub** e **APK/ModAPK**. |
 | 🛡️ **Administração de Grupos** | **Anti-Link** (com ou sem ban), **Anti-Fake** (bloqueio de DDI estrangeiro), **Bem-vindo / Adeus** personalizável, **Captcha**, `!hidetag`, `!tagall`, `!ban`, `!promote`, `!demote`, `!warn` e `!mute`. |
 | 🎮 **Economia, RPG & Jogos** | Sistema completo de **XP, Nível, Patentes, Diamantes, Banco, Roubo, Mineração, Apostas**, **Jogo da Velha (TicTacToe)**, **Matemática**, **Adivinhe a Bandeira** e **Verdade ou Desafio**. |
-| 🧠 **Ferramentas & IA** | Tradutor (`!trad`), Wikipedia, Letra de Música (`!lyrics`), OCR (`!totext`), Calculadora, Clima, Encurtador de URL e efeitos de áudio (*bass, nightcore, slow, robot*). |
-| 🌐 **Multi-Idioma** | Suporte nativo a **Português Brasileiro (`pt`)**, Espanhol (`es`), Inglês (`en`), Indonésio (`id`) e Árabe (`ar`). |
+| 🧠 **Ferramentas & Áudio** | Tradutor (`!trad`), Wikipedia, Letra de Música (`!lyrics`), OCR (`!totext`), Calculadora, Clima, Encurtador de URL e efeitos de áudio (*bass, nightcore, slow, robot*). |
 
 ---
 
