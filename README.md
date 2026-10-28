@@ -21,6 +21,7 @@
   <img src="https://img.shields.io/badge/Baileys-Multi--Device-25D366?style=flat-square&logo=whatsapp&logoColor=white" alt="Baileys MD" />
   <img src="https://img.shields.io/badge/Languages-PT--BR%20%7C%20ES%20%7C%20EN%20%7C%20ID%20%7C%20AR-009c3b?style=flat-square" alt="Idiomas" />
   <img src="https://img.shields.io/badge/Platforms-Termux%20%7C%20VPS%20%7C%20Docker%20%7C%20PC-0db7ed?style=flat-square&logo=docker&logoColor=white" alt="Plataformas" />
+  
   [![Contribuidor do XERJ Corpus Hub](https://hub.xerj.org/contributors/marcos-ce/badge.svg)](https://hub.xerj.org/contributors/marcos-ce)
 </p>
 
