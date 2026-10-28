@@ -1,7 +1,7 @@
  
 import fetch from 'node-fetch'
 import axios from 'axios';
-import cheerio from 'cheerio'; 
+import * as cheerio from 'cheerio'; 
 import fg from 'api-dylux'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `✳️ ${mssg.useCmd}\n *${usedPrefix + command}* https://www.instagram.com/p/CYHeKxyMj-J/?igshid=YmMyMTA2M2Y=`

@@ -54,11 +54,11 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.5.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^4.2.4",
     "@hapi/boom": "^10.0.1",
     "@vitalets/google-translate-api": "^9.2.0",
+    "@whiskeysockets/baileys": "^6.5.0",
     "acrcloud": "^1.4.0",
     "api-dylux": "^1.5.6",
     "aptoide-scraper": "^1.0.1",
@@ -66,7 +66,7 @@
     "axios": "^1.7.2",
     "cfonts": "^3.2.0",
     "chalk": "^5.3.0",
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "1.0.0-rc.12",
     "colors": "^1.4.0",
     "dotenv": "^16.3.1",
     "emoji-api": "^2.0.1",
@@ -100,7 +100,6 @@
     "syntax-error": "^1.4.0",
     "terminal-image": "^2.0.0",
     "url-regex-safe": "^3.0.0",
-    "wa-sticker-formatter": "^4.3.2",
     "ws": "^8.16.0",
     "yargs": "^17.7.2",
     "youtube-yts": "^2.0.0",
@@ -109,7 +108,8 @@
   },
   "overrides": {
     "link-preview-js": "3.2.0",
-    "file-type": "^21.3.1"
+    "file-type": "^21.3.1",
+    "cheerio": "1.0.0-rc.12"
   },
   "optionalDependencies": {
     "wa-sticker-formatter": "^4.3.2"

@@ -153,7 +153,7 @@ async function startBot() {
 
     log.info(chalk.green('✅ Bot modules loaded and initialized successfully'))
   } catch (err) {
-    log.error(chalk.red('❌ Failed to start bot:'), err)
+    log.error(err, chalk.red('❌ Failed to start bot:'))
     process.exit(1)
   }
 }
