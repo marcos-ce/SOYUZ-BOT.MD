@@ -229,7 +229,7 @@ const translations = {
   expire: 'Expira em',
   ping: 'Velocidade',
   uptime: 'Tempo ativo',
-  gpNsfw: (usedPrefix) => `O grupo não permite conteúdo NSFW\nUse este grupo\n${bgp3}\n\nSe você é um administrador, habilite com\n*${usedPrefix}enable* nsfw`,
+  gpNsfw: (usedPrefix) => `O grupo não permite conteúdo NSFW\nUse este grupo\nhttps://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ\n\nSe você é um administrador, habilite com\n*${usedPrefix}enable* nsfw`,
   nsfwAge: 'Você é menor de idade! Volte quando tiver mais de 18 anos',
   addPremUser: 'Agora você é um usuário Premium',
   banChat: 'O Bot foi desativado neste grupo',
@@ -265,7 +265,7 @@ const translations = {
   adminH: 'Este comando é apenas para *administradores* do grupo',
   botAdmin: 'Para usar este comando, você deve tornar o bot *ADMINISTRADOR* do grupo!',
   unregH: 'Registre-se para usar esta função. Digite:\n\n*/reg*',
-  ig: `▢ Siga-me no Instagram\n${fgig}`
+  ig: `▢ Siga-me no Instagram\nhttps://www.instagram.com/marcoskz_`
 }
 
 export default translations

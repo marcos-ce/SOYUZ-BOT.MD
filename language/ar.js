@@ -229,7 +229,7 @@ const translations = {
     expire: 'تنتهي في',
     ping: 'سرعة الاستجابة',
     uptime: 'وقت التشغيل',
-    gpNsfw: (usedPrefix) => `لا يسمح المجموعة بالمحتوى الجنسي الصريح\nاستخدم هذه المجموعة بدلاً من ذلك\n${bgp3}\n\nإذا كنت مشرفًا، فيمكنك تمكينه باستخدام\n*${usedPrefix}enable* nsfw`,
+    gpNsfw: (usedPrefix) => `لا يسمح المجموعة بالمحتوى الجنسي الصريح\nاستخدم هذه المجموعة بدلاً من ذلك\nhttps://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ\n\nإذا كنت مشرفًا، فيمكنك تمكينه باستخدام\n*${usedPrefix}enable* nsfw`,
     nsfwAge: 'أنت قاصر! يرجى العودة عندما تكون أكبر من 18 عامًا',
     addPremUser: 'أصبحت الآن مستخدمًا مميزًا',
     banChat: 'تم تعطيل البوت في هذه المجموعة',
@@ -265,7 +265,7 @@ const translations = {
     adminH: 'هذا الأمر مخصص فقط لـ *المشرفين* في المجموعة',
     botAdmin: 'يجب أن أكون *مسؤولًا* لاستخدام هذا الأمر!',
     unregH: 'سجل لاستخدام هذه الوظيفة بكتابة:\n\n/ reg',
-    ig: `▢ تابعني على Instagram\n${fgig}`
+    ig: `▢ تابعني على Instagram\nhttps://www.instagram.com/marcoskz_`
 }
 
 export default translations

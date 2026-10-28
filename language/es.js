@@ -227,7 +227,7 @@ to: 'Para',
     expire: 'Expira en',
     ping: 'Ping',
     uptime: 'Tiempo de actividad',
-    gpNsfw: (usedPrefix) => `El grupo no permite contenido nsfw\nUse este grupo\n${bgp3}\n\nSi eres un administrador, habilita con\n*${usedPrefix}enable* nsfw`,
+    gpNsfw: (usedPrefix) => `El grupo no permite contenido nsfw\nUse este grupo\nhttps://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ\n\nSi eres un administrador, habilita con\n*${usedPrefix}enable* nsfw`,
     nsfwAge: '¡Eres menor de edad! vuelve cuando tengas más de 18 años',
     addPremUser: 'Ahora eres un Usuario Premium',
     banChat: 'El Bot ha sido desactivado en este grupo',
@@ -263,7 +263,7 @@ to: 'Para',
     adminH: 'Este comando es solo para *Admins* de grupos',
     botAdmin: 'Para usar este comando, debo ser *Administrador*',
     unregH: 'Regístrate para usar esta función Ingresando:\n\n*/reg*',
-    ig: `▢ Sígueme en Instagram\n${fgig}`
+    ig: `▢ Sígueme en Instagram\nhttps://www.instagram.com/marcoskz_`
 }
 
 export default translations

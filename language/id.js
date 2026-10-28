@@ -229,7 +229,7 @@ const translations = {
     expire: 'Kadaluarsa dalam',
     ping: 'Kecepatan',
     uptime: 'Waktu Aktif',
-    gpNsfw: (usedPrefix) => `Grup ini tidak mengizinkan konten nsfw\nGunakan grup ini\n${bgp3}\n\nJika Anda adalah admin, aktifkan dengan\n*${usedPrefix}enable* nsfw`,
+    gpNsfw: (usedPrefix) => `Grup ini tidak mengizinkan konten nsfw\nGunakan grup ini\nhttps://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ\n\nJika Anda adalah admin, aktifkan dengan\n*${usedPrefix}enable* nsfw`,
     nsfwAge: 'Anda masih di bawah umur! Kembali ketika Anda berusia di atas 18 tahun',
     addPremUser: 'Anda sekarang menjadi Pengguna Premium',
     banChat: 'Bot dinonaktifkan di grup ini',
@@ -265,7 +265,7 @@ const translations = {
     adminH: 'Perintah ini hanya untuk *Admin Grup*',
     botAdmin: 'Untuk menggunakan perintah ini, saya perlu menjadi *Admin!*',
     unregH: 'Daftar untuk menggunakan fungsi ini. Ketik:\n\n*/reg*',
-    ig: `▢ Ikuti saya di Instagram\n${fgig}`
+    ig: `▢ Ikuti saya di Instagram\nhttps://www.instagram.com/marcoskz_`
 }
 
 export default translations
